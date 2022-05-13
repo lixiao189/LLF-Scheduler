@@ -12,5 +12,5 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND CMAKE_BUILD_TYPE STREQUAL "D
 endif()
 
 add_executable(${PROJECT_NAME}
-    main.cpp
+    src/main.cpp
 )

@@ -1,5 +1,5 @@
-#ifndef PROCESS_H
-#define PROCESS_H
+#ifndef SCHEDULER_PROCESS_H
+#define SCHEDULER_PROCESS_H
 
 namespace scheduler {
 class Process {

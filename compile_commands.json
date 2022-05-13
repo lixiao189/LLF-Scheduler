@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/node/Developer/C++/project/homework/大二/操作系统课程/课程设计/process-scheduler/build/osx-debug",
-  "command": "/usr/local/opt/llvm/bin/clang++   -fsanitize=leak -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++11 -o CMakeFiles/project.dir/main.cpp.o -c /Users/node/Developer/C++/project/homework/大二/操作系统课程/课程设计/process-scheduler/main.cpp",
-  "file": "/Users/node/Developer/C++/project/homework/大二/操作系统课程/课程设计/process-scheduler/main.cpp"
-}
-]

@@ -1,3 +1,0 @@
-/Users/node/Developer/C++/project/homework/大二/操作系统课程/课程设计/process-scheduler/build/osx-debug/CMakeFiles/project.dir
-/Users/node/Developer/C++/project/homework/大二/操作系统课程/课程设计/process-scheduler/build/osx-debug/CMakeFiles/edit_cache.dir
-/Users/node/Developer/C++/project/homework/大二/操作系统课程/课程设计/process-scheduler/build/osx-debug/CMakeFiles/rebuild_cache.dir

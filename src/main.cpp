@@ -1,5 +1,4 @@
 #include <iostream>
-#include <memory>
 
 int main() {
   std::cout << "Hello world" << std::endl;

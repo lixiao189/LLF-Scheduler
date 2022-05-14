@@ -1,12 +1,10 @@
 #include "Process.h"
 
 namespace scheduler {
-Process::Process(const int execute_time, int cycle_time)
-    : cycle_time(cycle_time), execute_time(execute_time) {}
+Process::Process(string &&pid, const int cycle_time, int execute_time)
+    : pid(pid), cycle_time(cycle_time), execute_time(execute_time) {}
 
-int Process::calc_laxity(int time_now) const {
-  return (cycle_id + 1) * cycle_time - (execute_time - up_time) - time_now;
-}
+string Process::get_pid() const { return pid; }
 
 int Process::get_cycle_id() const { return cycle_id; }
 

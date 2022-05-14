@@ -14,6 +14,5 @@ endif()
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/Process.cpp
-    src/ProcessManager.cpp
     src/OS.cpp
 )

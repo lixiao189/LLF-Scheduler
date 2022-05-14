@@ -25,5 +25,7 @@ public:
   void inc_up_time();
 };
 
+
+using process_ptr = std::unique_ptr<Process>;
 } // namespace scheduler
 #endif

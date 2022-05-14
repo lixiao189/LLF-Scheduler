@@ -17,4 +17,8 @@ int Process::get_up_time() const { return up_time; }
 void Process::inc_cycle_id() { cycle_id++; }
 
 void Process::inc_up_time() { up_time++; }
+
+bool Process::get_state() const { return running_state; }
+
+void Process::change_state() { running_state = !running_state; }
 } // namespace scheduler

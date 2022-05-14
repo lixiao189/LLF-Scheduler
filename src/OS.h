@@ -25,13 +25,15 @@ private:
 
   // 私有方法
   void tick();
+  void startTicking();
   void timeInterrupt();
-  int getProcessLaxity(const string &pid);
+  int getProcessLaxity(const string &pid) const;
 
 public:
   // Getters and setters
   void add_process(process_ptr process_obj);
-  void startTicking();
+  
+  void start(); // 系统启动
 };
 
 using os_ptr = std::unique_ptr<OS>;

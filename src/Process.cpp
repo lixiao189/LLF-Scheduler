@@ -21,4 +21,6 @@ void Process::inc_up_time() { up_time++; }
 bool Process::get_state() const { return running_state; }
 
 void Process::change_state() { running_state = !running_state; }
+
+void Process::clear_up_time() { up_time = 0; }
 } // namespace scheduler

@@ -25,6 +25,7 @@ public:
   bool get_state() const;
   void inc_cycle_id();
   void inc_up_time();
+  void clear_up_time();
   void change_state();
 };
 

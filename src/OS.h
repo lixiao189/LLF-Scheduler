@@ -19,7 +19,7 @@ const auto minLaxityInit = 0x3f3f3f3f;
 class OS {
 private:
   // 常量定义
-  const int OSExecuteTime = 80; // 系统执行时间为 1000 ms
+  const int OSExecuteTime = 100; // 系统执行时间为 1000 ms
 
   // 变量定义
   map<string, process_ptr> processes;

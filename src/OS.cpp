@@ -30,12 +30,12 @@ void OS::startTicking() {
 void OS::timeInterrupt() {
   const auto process_it = processes.find(current_process_pid);
   const auto has_running_process = process_it != processes.end();
-  const auto &process = process_it->second; // 当前运行的进程
+  const auto &current_process = process_it->second; // 当前运行的进程
 
   if (has_running_process) {
-    if (process->get_up_time() == process->get_execute_time()) {
-      process->clear_up_time();
-      process->inc_cycle_id();
+    if (current_process->get_up_time() == current_process->get_execute_time()) {
+      current_process->clear_up_time();
+      current_process->inc_cycle_id();
     }
   }
 
@@ -51,6 +51,9 @@ void OS::timeInterrupt() {
     if (laxity < min_laxity) {
       min_laxity = laxity;
       urgent_process_pid = process->get_pid();
+    } else if (laxity == min_laxity && process->get_up_time() > 0) {
+      // 如果有多个最小松弛度的, 选择任务还没有执行结束的那个 
+      urgent_process_pid = process->get_pid();
     }
   }
   if (urgent_process_pid.empty()) { // 所有进程都执行完了
@@ -60,7 +63,7 @@ void OS::timeInterrupt() {
 
   auto can_preempt = false;
   if (has_running_process) {
-    if (min_laxity == 0 || process->get_up_time() == 0) {
+    if (min_laxity == 0 || current_process->get_up_time() == 0) {
       can_preempt = true;
     }
   } else {

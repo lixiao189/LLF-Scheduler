@@ -28,9 +28,9 @@ void OS::startTicking() {
 
 void OS::timeInterrupt() {
   if (!current_process_pid.empty()) {
-    // 检测现在的进程是否结束
-    const auto &process = processes.find(current_process_pid)->second;
-    if ((process->get_cycle_id() + 1) * process->get_cycle_time() == up_time) {
+    const auto &process =
+        processes.find(current_process_pid)->second; // 当前运行的进程
+    if (process->get_up_time() == process->get_execute_time()) {
       process->clear_up_time();
       process->inc_cycle_id();
     }
@@ -41,11 +41,17 @@ void OS::timeInterrupt() {
   std::string urgent_process_pid;
   for (auto &process_pair : processes) {
     const auto &process = process_pair.second;
+    if (process->get_cycle_id() * process->get_cycle_time() > up_time) {
+      continue;
+    }
     const auto laxity = getProcessLaxity(process->get_pid());
     if (laxity < min_laxity) {
       min_laxity = laxity;
       urgent_process_pid = process->get_pid();
     }
+  }
+  if (urgent_process_pid.empty()) {
+    return;
   }
   if (urgent_process_pid != current_process_pid) { // 进程抢占
     const auto &urgent_process = processes.find(urgent_process_pid)->second;
@@ -64,18 +70,18 @@ void OS::timeInterrupt() {
 
 void OS::start() {
   // 添加进程
-  const auto aCycleTime = 20;
-  const auto aExecuteTime = 10;
+  const auto aCycleTime = 6;
+  const auto aExecuteTime = 2;
 
-  const auto bCycleTime = 50;
-  const auto bExecuteTime = 25;
+  const auto bCycleTime = 8;
+  const auto bExecuteTime = 2;
 
-  // const auto cCycleTime = 45;
-  // const auto cExecuteTime = 12;
+  const auto cCycleTime = 10;
+  const auto cExecuteTime = 3;
 
   add_process(process_ptr(new Process("A", aCycleTime, aExecuteTime)));
   add_process(process_ptr(new Process("B", bCycleTime, bExecuteTime)));
-  // add_process(process_ptr(new Process("C", cCycleTime, cExecuteTime)));
+  add_process(process_ptr(new Process("C", cCycleTime, cExecuteTime)));
 
   // 开始记时
   startTicking();

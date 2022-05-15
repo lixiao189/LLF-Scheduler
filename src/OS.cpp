@@ -85,18 +85,18 @@ void OS::timeInterrupt() {
 
 void OS::start() {
   // 添加进程
-  const auto aCycleTime = 20;
-  const auto aExecuteTime = 10;
+  const auto aCycleTime = 15;
+  const auto aExecuteTime = 5;
 
-  const auto bCycleTime = 50;
-  const auto bExecuteTime = 25;
+  const auto bCycleTime = 30;
+  const auto bExecuteTime = 10;
 
-  // const auto cCycleTime = 45;
-  // const auto cExecuteTime = 12;
+  const auto cCycleTime = 45;
+  const auto cExecuteTime = 12;
 
   add_process(process_ptr(new Process("A", aCycleTime, aExecuteTime)));
   add_process(process_ptr(new Process("B", bCycleTime, bExecuteTime)));
-  // add_process(process_ptr(new Process("C", cCycleTime, cExecuteTime)));
+  add_process(process_ptr(new Process("C", cCycleTime, cExecuteTime)));
 
   // 开始记时
   startTicking();

@@ -1,0 +1,37 @@
+@startuml main
+!theme plain
+skinparam classAttributeIconSize 0
+class Process {
+    - pid: string
+    - up_time: int
+    - execute_time: int
+    - cycle_time: int
+    - cycle_id: int
+
+    + Process(pid: string &&, cycle_time: const int, execute_time: const int)
+    
+    + get_pid(): string
+    + get_cycle_id(): int
+    + get_execute_time(): int
+    + get_up_time(): int
+
+    + inc_cycle_id(): void
+    + inc_up_time(): void
+    + clear_up_time(): void
+}
+
+class OS {
+    - processes: map<string, process_ptr>
+    - up_time: int
+    - current_process_pid: std::string
+    
+    + tick(): void 
+    + startTicking(): void 
+    + timeInterrupt(): void 
+    
+    + getProcessLaxity(pid: const string&): int
+}
+
+' Relationship
+OS o-- Process
+@enduml

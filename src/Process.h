@@ -2,6 +2,8 @@
 #define SCHEDULER_PROCESS_H
 
 #include <string>
+#include <memory.h>
+
 namespace scheduler {
 
 using std::string;

@@ -17,7 +17,7 @@ int OS::getProcessLaxity(const string &pid) const {
 }
 
 void OS::add_process(process_ptr process_obj) {
-  processes.insert(make_pair(process_obj->get_pid(), move(process_obj)));
+  processes.insert(std::make_pair(process_obj->get_pid(), std::move(process_obj)));
 }
 
 void OS::startTicking() {

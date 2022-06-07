@@ -2,7 +2,7 @@
 #define SCHEDULER_PROCESS_H
 
 #include <string>
-#include <memory.h>
+#include <memory>
 
 namespace scheduler {
 
